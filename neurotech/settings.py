@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)7r#_4w2zc3%xvel@1$cak4sg3*pdd#n6wv7mmgg)-9^lc)sa@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['neurotech-stevillis.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
