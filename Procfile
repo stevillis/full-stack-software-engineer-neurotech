@@ -1,0 +1,1 @@
+web: gunicorn neurotech.wsgi --log-file -
