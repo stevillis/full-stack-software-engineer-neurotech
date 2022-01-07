@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% if error %}
+        <h2>Erro: {{ error }}</h2>
+        <a href="{% url 'autenticacao' %}" class="btn-btn-secondary">Voltar à página inicial</a>
+    {% else %}
+        <h1 class="mb-4">Contatos</h1>
+        <a href="{% url 'cadastrar_contato' %}" class="btn btn-primary">Cadastrar</a>
+        <table class="table table-striped mt-2">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de Criação</th>
+                <th>Data de Modificação</th>
+                <th class="text-center">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.firstname|default_if_none:"" }} {{ contact.lastname|default_if_none:"" }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.createdate }}</td>
+                    <td>{{ contact.lastmodifieddate }}</td>
+                    <td class="d-flex justify-content-between">
+                        <a href="{% url 'editar_contato' contact.id %}" class="mx-2">Editar</a>
+                        <a href="{% url 'remover_contato' contact.id %}" class="mx-2">Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

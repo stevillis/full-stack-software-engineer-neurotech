@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
-    'rest_framework',
+    'contatos',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +75,13 @@ WSGI_APPLICATION = 'neurotech.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'neurotech',
         'USER': 'postgres',
@@ -84,6 +90,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+"""
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)

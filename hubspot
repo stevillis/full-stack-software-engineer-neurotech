@@ -1,0 +1,4 @@
+CLIENT_ID: 60189b5a-796b-4371-92ab-c681d3ad91ca
+CLIENT_SECRET: a242b4b9-d725-43a6-91d0-f33f0b463d2c
+REDIRECT_URI: http://localhost:8000/oauth
+AUTH_URL: https://app.hubspot.com/oauth/authorize?client_id=60189b5a-796b-4371-92ab-c681d3ad91ca&redirect_uri=http://localhost:8000/contatos&scope=crm.objects.contacts.read%20crm.objects.contacts.write

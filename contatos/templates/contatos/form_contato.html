@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Cadastro de Contato
+{% endblock titulo %}
+
+{% block conteudo %}
+    <h1 class="mt-5">
+        {% if isDelete %}
+            Excluir
+        {% else %}
+            {% if isEdit %}
+                Editar
+            {% else %}
+                Cadastrar
+            {% endif %}
+        {% endif %}
+        Contato
+    </h1>
+    <div class="card">
+        <div class="card-body">
+            <form method="post" autocomplete="off" id="formContato">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="control-label" for="{{ form.email.id_for_label }}">
+                        {{ form.email.label }}
+                    </label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="{{ form.telefone.id_for_label }}">
+                        {{ form.telefone.label }}
+                    </label>
+                    {{ form.telefone }}
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="{{ form.data_aniversario.id_for_label }}">
+                        {{ form.data_aniversario.label }}
+                    </label>
+                    {{ form.data_aniversario }}
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="{{ form.peso.id_for_label }}">
+                        {{ form.peso.label }}
+                    </label>
+                    {{ form.peso }}
+                </div>
+
+                <div class="text-center">
+                    <a href="{% url 'listar_contatos' %}" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                    <button type="submit" data-toggle="tooltip" data-placement="top" title="Salvar"
+                            class="btn btn-success">
+                        Salvar
+                    </button>
+                </div>
+            </form>
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error.status }}
+                    {{ error.body }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
